@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.13.0 on win32)" generated="2024-10-21T20:48:07.382474" rpa="false" schemaversion="5">
+<suite id="s1" name="Test" source="c:\Users\artur\OneDrive\Área de Trabalho\CTFL\Robot Estudos\test_suite\test.robot">
+<test id="s1-t1" name="TC0002: Meu primeiro teste" line="45">
+<kw name="Buscar o nome &quot;Zé&quot; no dicionario" source_name="Buscar o nome &quot;${nome}&quot; no dicionario">
+<for flavor="IN">
+<iter>
+<if>
+<branch type="IF" condition="'$key' == 'nome' and '$value' == '$nome'">
+<kw name="Log ${key}: ${value}">
+<status status="NOT RUN" start="2024-10-21T20:48:08.298857" elapsed="0.000115"/>
+</kw>
+<status status="NOT RUN" start="2024-10-21T20:48:08.298028" elapsed="0.001118"/>
+</branch>
+<status status="PASS" start="2024-10-21T20:48:08.298001" elapsed="0.001257"/>
+</if>
+<var name="${key}">nome</var>
+<var name="${value}">Zé</var>
+<status status="PASS" start="2024-10-21T20:48:08.297850" elapsed="0.001449"/>
+</iter>
+<iter>
+<if>
+<branch type="IF" condition="'$key' == 'nome' and '$value' == '$nome'">
+<kw name="Log ${key}: ${value}">
+<status status="NOT RUN" start="2024-10-21T20:48:08.300016" elapsed="0.000088"/>
+</kw>
+<status status="NOT RUN" start="2024-10-21T20:48:08.299713" elapsed="0.000490"/>
+</branch>
+<status status="PASS" start="2024-10-21T20:48:08.299693" elapsed="0.000603"/>
+</if>
+<var name="${key}">idade</var>
+<var name="${value}">50</var>
+<status status="PASS" start="2024-10-21T20:48:08.299573" elapsed="0.000757"/>
+</iter>
+<iter>
+<if>
+<branch type="IF" condition="'$key' == 'nome' and '$value' == '$nome'">
+<kw name="Log ${key}: ${value}">
+<status status="NOT RUN" start="2024-10-21T20:48:08.300986" elapsed="0.000086"/>
+</kw>
+<status status="NOT RUN" start="2024-10-21T20:48:08.300717" elapsed="0.000453"/>
+</branch>
+<status status="PASS" start="2024-10-21T20:48:08.300698" elapsed="0.000560"/>
+</if>
+<var name="${key}">active</var>
+<var name="${value}">False</var>
+<status status="PASS" start="2024-10-21T20:48:08.300550" elapsed="0.000760"/>
+</iter>
+<var>${key}</var>
+<var>${value}</var>
+<value>&amp;{dicionario}</value>
+<status status="PASS" start="2024-10-21T20:48:08.297446" elapsed="0.003980"/>
+</for>
+<status status="PASS" start="2024-10-21T20:48:08.296494" elapsed="0.005096"/>
+</kw>
+<tag>tc0002</tag>
+<status status="PASS" start="2024-10-21T20:48:08.293871" elapsed="0.008495"/>
+</test>
+<status status="PASS" start="2024-10-21T20:48:07.393300" elapsed="0.919362"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">tc0002</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Test">Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
