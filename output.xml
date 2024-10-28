@@ -1,72 +1,142 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1.1 (Python 3.13.0 on win32)" generated="2024-10-21T20:48:07.382474" rpa="false" schemaversion="5">
-<suite id="s1" name="Test" source="c:\Users\artur\OneDrive\Área de Trabalho\CTFL\Robot Estudos\test_suite\test.robot">
-<test id="s1-t1" name="TC0002: Meu primeiro teste" line="45">
-<kw name="Buscar o nome &quot;Zé&quot; no dicionario" source_name="Buscar o nome &quot;${nome}&quot; no dicionario">
-<for flavor="IN">
-<iter>
-<if>
-<branch type="IF" condition="'$key' == 'nome' and '$value' == '$nome'">
-<kw name="Log ${key}: ${value}">
-<status status="NOT RUN" start="2024-10-21T20:48:08.298857" elapsed="0.000115"/>
+<robot generator="Robot 7.1.1 (Python 3.13.0 on win32)" generated="2024-10-28T19:30:29.771385" rpa="false" schemaversion="5">
+<suite id="s1" name="Post produtos" source="c:\Users\artur\OneDrive\Área de Trabalho\CTFL\Robot Estudos\test_suite\produtos\Post_produtos.robot">
+<test id="s1-t1" name="TC00011: Status code should be 400 with field &quot;nome&quot;: empity" line="101">
+<kw name="POST api/login">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-10-28T19:30:31.306469" level="INFO">&amp;{headers} = { accept=application/json | Content-Type=application/json }</msg>
+<var>&amp;{headers}</var>
+<arg>accept=application/json</arg>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-10-28T19:30:31.305711" elapsed="0.016126"/>
 </kw>
-<status status="NOT RUN" start="2024-10-21T20:48:08.298028" elapsed="0.001118"/>
-</branch>
-<status status="PASS" start="2024-10-21T20:48:08.298001" elapsed="0.001257"/>
-</if>
-<var name="${key}">nome</var>
-<var name="${value}">Zé</var>
-<status status="PASS" start="2024-10-21T20:48:08.297850" elapsed="0.001449"/>
-</iter>
-<iter>
-<if>
-<branch type="IF" condition="'$key' == 'nome' and '$value' == '$nome'">
-<kw name="Log ${key}: ${value}">
-<status status="NOT RUN" start="2024-10-21T20:48:08.300016" elapsed="0.000088"/>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-10-28T19:30:31.324498" level="INFO">&amp;{body} = { email=artur.duncan@iteris.com.br | password=teste }</msg>
+<var>&amp;{body}</var>
+<arg>email=${email}</arg>
+<arg>password=${password}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-10-28T19:30:31.323034" elapsed="0.001970"/>
 </kw>
-<status status="NOT RUN" start="2024-10-21T20:48:08.299713" elapsed="0.000490"/>
-</branch>
-<status status="PASS" start="2024-10-21T20:48:08.299693" elapsed="0.000603"/>
-</if>
-<var name="${key}">idade</var>
-<var name="${value}">50</var>
-<status status="PASS" start="2024-10-21T20:48:08.299573" elapsed="0.000757"/>
-</iter>
-<iter>
-<if>
-<branch type="IF" condition="'$key' == 'nome' and '$value' == '$nome'">
-<kw name="Log ${key}: ${value}">
-<status status="NOT RUN" start="2024-10-21T20:48:08.300986" elapsed="0.000086"/>
+<kw name="POST" owner="RequestsLibrary">
+<msg time="2024-10-28T19:30:31.783535" level="INFO">POST Request : url=https://serverest.dev/login 
+ path_url=/login 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '60'} 
+ body=b'{"email": "artur.duncan@iteris.com.br", "password": "teste"}' 
+ </msg>
+<msg time="2024-10-28T19:30:31.783839" level="INFO">POST Response : url=https://serverest.dev/login 
+ status=200, reason=OK 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': '61f3933226917070dffe6a4e22d526ce;o=1', 'Date': 'Mon, 28 Oct 2024 22:30:31 GMT', 'Server': 'Google Frontend', 'Content-Length': '283'} 
+ body={
+    "message": "Login realizado com sucesso",
+    "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFydHVyLmR1bmNhbkBpdGVyaXMuY29tLmJyIiwicGFzc3dvcmQiOiJ0ZXN0ZSIsImlhdCI6MTczMDE1NDYzMSwiZXhwIjoxNzMwMTU1MjMxfQ.cYlTuSZgscwsZ0uzbqqR5GiKBqM64OUUTktDeon0rzc"
+} 
+ </msg>
+<msg time="2024-10-28T19:30:31.784350" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>url=${base_url}/login</arg>
+<arg>headers=${headers}</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a POST request.</doc>
+<status status="PASS" start="2024-10-28T19:30:31.325409" elapsed="0.459152"/>
 </kw>
-<status status="NOT RUN" start="2024-10-21T20:48:08.300717" elapsed="0.000453"/>
-</branch>
-<status status="PASS" start="2024-10-21T20:48:08.300698" elapsed="0.000560"/>
-</if>
-<var name="${key}">active</var>
-<var name="${value}">False</var>
-<status status="PASS" start="2024-10-21T20:48:08.300550" elapsed="0.000760"/>
-</iter>
-<var>${key}</var>
-<var>${value}</var>
-<value>&amp;{dicionario}</value>
-<status status="PASS" start="2024-10-21T20:48:08.297446" elapsed="0.003980"/>
-</for>
-<status status="PASS" start="2024-10-21T20:48:08.296494" elapsed="0.005096"/>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2024-10-28T19:30:31.785182" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<arg>${response}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2024-10-28T19:30:31.784837" elapsed="0.000494"/>
 </kw>
-<tag>tc0002</tag>
-<status status="PASS" start="2024-10-21T20:48:08.293871" elapsed="0.008495"/>
+<arg>artur.duncan@iteris.com.br</arg>
+<arg>teste</arg>
+<status status="PASS" start="2024-10-28T19:30:31.297209" elapsed="0.488358"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-10-28T19:30:31.788986" level="INFO">${post_response} = {'message': 'Login realizado com sucesso', 'authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFydHVyLmR1bmNhbkBpdGVyaXMuY29tLmJyIiwicGFzc3dvcmQiOiJ0ZXN0ZSIsImlhdCI6MTczMDE1NDY...</msg>
+<var>${post_response}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-10-28T19:30:31.787698" elapsed="0.001479"/>
+</kw>
+<kw name="POST api/Produtos">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-10-28T19:30:31.791809" level="INFO">&amp;{headers} = { accept=application/json | Content-Type=application/json | Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFydHVyLmR1bmNhbkBpdGVyaXMuY29tLmJyIiwicGFzc3dvcmQiOiJ0ZXN0ZSIsImlhdC...</msg>
+<var>&amp;{headers}</var>
+<arg>accept=application/json</arg>
+<arg>Content-Type=application/json</arg>
+<arg>Authorization=${token}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-10-28T19:30:31.791326" elapsed="0.000676"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-10-28T19:30:31.792847" level="INFO">&amp;{body} = { nome= | preco=99 | descricao=Prod descrip | quantidade=17 }</msg>
+<var>&amp;{body}</var>
+<arg>nome=${nome}</arg>
+<arg>preco=${preco}</arg>
+<arg>descricao=${descricao}</arg>
+<arg>quantidade=${quantidade}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-10-28T19:30:31.792307" elapsed="0.000738"/>
+</kw>
+<kw name="POST" owner="RequestsLibrary">
+<msg time="2024-10-28T19:30:32.156402" level="INFO">POST Request : url=https://serverest.dev/produtos 
+ path_url=/produtos 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFydHVyLmR1bmNhbkBpdGVyaXMuY29tLmJyIiwicGFzc3dvcmQiOiJ0ZXN0ZSIsImlhdCI6MTczMDE1NDYzMSwiZXhwIjoxNzMwMTU1MjMxfQ.cYlTuSZgscwsZ0uzbqqR5GiKBqM64OUUTktDeon0rzc', 'Content-Length': '76'} 
+ body=b'{"nome": "", "preco": "99", "descricao": "Prod descrip", "quantidade": "17"}' 
+ </msg>
+<msg time="2024-10-28T19:30:32.156711" level="INFO">POST Response : url=https://serverest.dev/produtos 
+ status=400, reason=Bad Request 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': '32ce1ad0b82b2a935881038e69ab53cd', 'Date': 'Mon, 28 Oct 2024 22:30:32 GMT', 'Server': 'Google Frontend', 'Content-Length': '48'} 
+ body={
+    "nome": "nome não pode ficar em branco"
+} 
+ </msg>
+<msg time="2024-10-28T19:30:32.156993" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<var>${response}</var>
+<arg>url=${base_url}/produtos</arg>
+<arg>headers=${headers}</arg>
+<arg>json=${body}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a POST request.</doc>
+<status status="PASS" start="2024-10-28T19:30:31.793317" elapsed="0.363837"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2024-10-28T19:30:32.160696" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<arg>${response}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2024-10-28T19:30:32.158844" elapsed="0.002295"/>
+</kw>
+<arg>${post_response['authorization']}</arg>
+<arg>${EMPTY}</arg>
+<arg>99</arg>
+<arg>Prod descrip</arg>
+<arg>17</arg>
+<status status="PASS" start="2024-10-28T19:30:31.790014" elapsed="0.371414"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>400</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2024-10-28T19:30:32.164313" elapsed="0.000540"/>
+</kw>
+<tag>api_produtos</tag>
+<tag>post_produtos</tag>
+<tag>tc00011</tag>
+<status status="PASS" start="2024-10-28T19:30:31.295712" elapsed="0.872052"/>
 </test>
-<status status="PASS" start="2024-10-21T20:48:07.393300" elapsed="0.919362"/>
+<status status="PASS" start="2024-10-28T19:30:29.782425" elapsed="2.388194"/>
 </suite>
 <statistics>
 <total>
 <stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0" skip="0">tc0002</stat>
+<stat pass="1" fail="0" skip="0">api_produtos</stat>
+<stat pass="1" fail="0" skip="0">post_produtos</stat>
+<stat pass="1" fail="0" skip="0">tc00011</stat>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Test">Test</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Post produtos">Post produtos</stat>
 </suite>
 </statistics>
 <errors>
